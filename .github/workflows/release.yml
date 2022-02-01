@@ -112,7 +112,7 @@ jobs:
         uses: "finnp/create-file-action@master"
         env:
           FILE_NAME: changelogs/${{ steps.previoustag.outputs.tag }}.md
-          FILE_DATA: "# {{ steps.previoustag.outputs.tag }}"
+          FILE_DATA: "No Changelog present for version ${{ steps.previoustag.outputs.tag }}!"
       # Create release
       - name: Create release
         id: create_release
