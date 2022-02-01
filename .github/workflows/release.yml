@@ -109,6 +109,8 @@ jobs:
         with:
           tag_name: ${{ steps.previoustag.outputs.tag }}
           release_name: Release ${{ steps.previoustag.outputs.tag }}
+          body: |
+            ${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
       # Setup URL
