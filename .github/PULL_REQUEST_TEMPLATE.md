@@ -1,3 +1,11 @@
+---
+name: "Feature Request"
+about: "Request a feature"
+title: "feat: "
+labels: "feature-request, not-reviewed"
+assignees: "derekprior, tooomm"
+---
+
 # Template selection
 
 Select one of the following templates or customize this to your liking.
