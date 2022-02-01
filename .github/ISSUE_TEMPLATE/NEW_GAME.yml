@@ -24,6 +24,8 @@ body:
     attributes:
       label: Limitations
       description: Did you think about the limitations that the JavaScript in PDFs has?
+      options:
+        - label: I think it might be possible to implement that
   - type: checkboxes
     id: terms
     attributes:
