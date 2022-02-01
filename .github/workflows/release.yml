@@ -136,7 +136,7 @@ jobs:
       - name: Zip files
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r /src/src.zip src
+          args: zip -qq -r src/src.zip src
       # Upload
       - name: Upload
         uses: actions/upload-release-asset@v1.0.1
