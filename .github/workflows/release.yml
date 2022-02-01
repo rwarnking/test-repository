@@ -100,6 +100,19 @@ jobs:
       - name: 'Get Previous tag'
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      # Check if changelog file exists
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: changelogs/${{ steps.previoustag.outputs.tag }}.md
+      # If not create a dummy file
+      - name: Create if file does not exist
+        if: steps.check_files.outputs.files_exists == 'false'
+        uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: changelogs/${{ steps.previoustag.outputs.tag }}.md
+          FILE_DATA: "# {{ steps.previoustag.outputs.tag }}"
       # Create release
       - name: Create release
         id: create_release
