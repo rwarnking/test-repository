@@ -46,10 +46,6 @@ jobs:
       # Install tlmgr #
       ####################
       - uses: xu-cheng/texlive-action/small@v1
-        with:
-          run: |
-            apk add make
-            make
       ####################
       # Install the compiler #
       ####################
