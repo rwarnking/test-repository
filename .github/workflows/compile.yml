@@ -46,6 +46,9 @@ jobs:
       # Install tlmgr #
       ####################
       - uses: xu-cheng/texlive-action/small@v1
+        with:
+          run: |
+            tlmgr install xcolor
       ####################
       # Install the compiler #
       ####################
@@ -56,7 +59,5 @@ jobs:
       #     glob_root_file: true
       - name: Running requirements script
         run: chmod +x ./requirements.sh
-      - name: tlmgr test
-        run: "tlmgr install xcolor"
       - name : show files
         run : "ls -R"
