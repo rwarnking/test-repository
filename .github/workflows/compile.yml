@@ -52,3 +52,5 @@ jobs:
           glob_root_file: true
       - name: Running requirements script
         run: chmod +x ./requirements.sh
+      - name : show files
+        run : "ls -R"
