@@ -43,13 +43,21 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       ####################
+      # Install tlmgr #
+      ####################
+      - uses: xu-cheng/texlive-action/small@v1
+        with:
+          run: |
+            apk add make
+            make
+      ####################
       # Install the compiler #
       ####################
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: "src/test.tex"
-          glob_root_file: true
+      # - name: Compile LaTeX document
+      #   uses: xu-cheng/latex-action@v2
+      #   with:
+      #     root_file: "src/test.tex"
+      #     glob_root_file: true
       - name: Running requirements script
         run: chmod +x ./requirements.sh
       - name: tlmgr test
