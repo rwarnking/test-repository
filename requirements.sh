@@ -1,19 +1,19 @@
 #!/bin/bash
 echo "Installing dependencies (default packages)!"
 
-tlmgr install xcolor
-tlmgr install geometry
-tlmgr install hyperref
-# For multicol and tabularx
-tlmgr install tools
-# For tikz
-tlmgr install pgf
+# tlmgr install xcolor
+# tlmgr install geometry
+# tlmgr install hyperref
+# # For multicol and tabularx
+# tlmgr install tools
+# # For tikz
+# tlmgr install pgf
 
-# For xinttools
-tlmgr install xint
-tlmgr install fp
-tlmgr install tcolorbox
-tlmgr install booktabs
+# # For xinttools
+# tlmgr install xint
+# tlmgr install fp
+# tlmgr install tcolorbox
+# tlmgr install booktabs
 
 echo "
 The acrotex bundle is responsible for the JavaScript.
