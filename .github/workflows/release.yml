@@ -58,17 +58,23 @@ jobs:
           git config --global user.email 'rwarnking@users.noreply.github.com'
       # Add and push tag
       - name: Check for Major version
-        if: contains(env.commitmsg , 'Major:')
+        env:
+          COMMITMSG: ${{ github.event.head_commit.message }}
+        if: contains(COMMITMSG , 'Major:')
         run: |
           git tag -a ${{ steps.semvers.outputs.v_major }} -m "New version ${{ steps.semvers.outputs.v_major }}"
           git push origin ${{ steps.semvers.outputs.v_major }}
       - name: Check for Minor version
-        if: contains(env.commitmsg , 'Minor:')
+        env:
+          COMMITMSG: ${{ github.event.head_commit.message }}
+        if: contains(COMMITMSG , 'Minor:')
         run: |
           git tag -a ${{ steps.semvers.outputs.v_minor }} -m "New version ${{ steps.semvers.outputs.v_minor }}"
           git push origin ${{ steps.semvers.outputs.v_minor }}
       - name: Check for Patch
-        if: contains(env.commitmsg , 'Patch:')
+        env:
+          COMMITMSG: ${{ github.event.head_commit.message }}
+        if: contains(COMMITMSG , 'Patch:')
         run: |
           git tag -a ${{ steps.semvers.outputs.v_patch }} -m "New version ${{ steps.semvers.outputs.v_patch }}"
           git push origin ${{ steps.semvers.outputs.v_patch }}
