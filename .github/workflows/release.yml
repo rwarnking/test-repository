@@ -60,24 +60,17 @@ jobs:
       - name: Check for Major version
         env:
           COMMITMSG: ${{ github.event.head_commit.message }}
-        if: contains("$COMMITMSG" , 'Major:')
         run: |
+          if [[ "$COMMITMSG" =~ ^Major: ]]; then
           git tag -a ${{ steps.semvers.outputs.v_major }} -m "New version ${{ steps.semvers.outputs.v_major }}"
           git push origin ${{ steps.semvers.outputs.v_major }}
-      - name: Check for Minor version
-        env:
-          COMMITMSG: ${{ github.event.head_commit.message }}
-        if: contains("$COMMITMSG" , 'Minor:')
-        run: |
+          elif [[ "$COMMITMSG" =~ ^Minor: ]]; then
           git tag -a ${{ steps.semvers.outputs.v_minor }} -m "New version ${{ steps.semvers.outputs.v_minor }}"
           git push origin ${{ steps.semvers.outputs.v_minor }}
-      - name: Check for Patch
-        env:
-          COMMITMSG: ${{ github.event.head_commit.message }}
-        if: contains("$COMMITMSG" , 'Patch:')
-        run: |
+          elif [[ "$COMMITMSG" =~ ^Patch: ]]; then
           git tag -a ${{ steps.semvers.outputs.v_patch }} -m "New version ${{ steps.semvers.outputs.v_patch }}"
           git push origin ${{ steps.semvers.outputs.v_patch }}
+          fi
 
   ##################
   # Create release #
